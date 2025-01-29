@@ -53,7 +53,7 @@ export const Menu = () => {
                   <li key={itemIndex} className="menu-item" onClick={() => setSelectedItem(item)}>
                     <img src={item.image} alt={item.name} />
                     <div className="menu-info">
-                      <h3>{item.name}</h3>
+                      <h3 className="cardItemName">{item.name}</h3>
                       <p>${item.price.toFixed(2)}</p>
                       <button onClick={(e) => { e.stopPropagation(); addToCart(item) }}>
                         Add to Cart

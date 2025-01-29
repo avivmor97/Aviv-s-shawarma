@@ -10,21 +10,30 @@
     overflow: hidden;
     box-sizing: border-box;
     max-width: 1200px;
-    animation: fadeIn 1.5s ease-in; /* Apply fade-in animation */
+    animation: fadeIn 1.5s ease-in;
+    /* Apply fade-in animation */
 }
 
 .menu-section {
     text-align: center;
     width: 100%;
     box-sizing: border-box;
-    animation: fadeIn 1.5s ease-in; /* Apply fade-in animation */
+    animation: fadeIn 1.5s ease-in;
+    /* Apply fade-in animation */
 }
 
 .menu-section h1 {
     font-size: 4rem;
     color: #ffffff;
     font-weight: bold;
-    animation: fadeIn 1.5s ease-in; /* Apply fade-in animation */
+    animation: fadeIn 1.5s ease-in;
+    /* Apply fade-in animation */
+}
+
+
+.cardItemName {
+
+    margin: 0;
 }
 
 .menu-category {
@@ -35,7 +44,7 @@
     max-width: 900px;
 }
 
-.menuRoll{
+.menuRoll {
 
     margin-right: 35px;
 }
@@ -47,7 +56,8 @@
     color: #ffffff;
     text-align: center;
     font-weight: bold;
-    animation: fadeIn 1.5s ease-in; /* Apply fade-in animation */
+    animation: fadeIn 1.5s ease-in;
+    /* Apply fade-in animation */
 }
 
 .menu-item {
@@ -63,8 +73,9 @@
     width: 100%;
     box-sizing: border-box;
     transition: transform 0.2s ease;
-    animation: fadeIn 1.5s ease-in; /* Apply fade-in animation */
-    
+    animation: fadeIn 1.5s ease-in;
+    /* Apply fade-in animation */
+
 }
 
 .menu-item:hover {
@@ -150,6 +161,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -159,13 +171,13 @@
 
 @media (max-width: 768px) {
     .main-container {
-        padding: 40px 20px; 
-        margin: 100px auto; 
+        padding: 40px 20px;
+        margin: 15px auto;
         max-width: 100%;
     }
 
     .menu-section h1 {
-        font-size: 2.5rem; 
+        font-size: 2.5rem;
     }
 
     .menu-category h2 {
@@ -209,9 +221,7 @@
         max-height: 500px;
         padding-right: 5px;
     }
-}
 
-@media (max-width: 480px) {
     .menu-section h1 {
         font-size: 2rem;
     }
