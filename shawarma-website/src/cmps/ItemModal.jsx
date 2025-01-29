@@ -61,7 +61,7 @@ export const ItemModal = ({ item, closeModal, addToCart }) => {
     <div className="modal-overlay">
       <div className="modal-content">
         <button className="close-btn" onClick={closeModal}>✖</button>
-        <h2>{item.name}</h2>
+        <h2 className='itemName'>{item.name}</h2>
         <img src={item.image} alt={item.name} className="modal-img" />
         <p>Customize your {item.name} before adding it to the cart.</p>
 

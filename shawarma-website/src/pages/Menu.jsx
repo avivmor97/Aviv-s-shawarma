@@ -48,7 +48,7 @@ export const Menu = () => {
           {categories.map((category, catIndex) => (
             <div key={catIndex} className="menu-category">
               <h2>{category.name}</h2>
-              <ul>
+              <ul className="menuRoll">
                 {category.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="menu-item" onClick={() => setSelectedItem(item)}>
                     <img src={item.image} alt={item.name} />
