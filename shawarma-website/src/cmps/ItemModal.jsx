@@ -37,6 +37,11 @@ export const ItemModal = ({ item, closeModal, addToCart }) => {
     closeModal()
   }
 
+  const handleCancel = () => {
+    setCustomization({ removedIngredients: [], extras: [] })
+    closeModal()
+  }
+
   return (
     <div className="modal-overlay">
       <div className="modal-content">
@@ -73,9 +78,12 @@ export const ItemModal = ({ item, closeModal, addToCart }) => {
           </div>
         </div>
 
-        <button className="confirm-btn" onClick={handleConfirm}>
-          Add to Cart - ${item.price + customization.extras.length * 1.99}
-        </button>
+        <div className="modal-actions">
+          <button className="cancel-btn" onClick={handleCancel}>Cancel Changes</button>
+          <button className="confirm-btn" onClick={handleConfirm}>
+            Add to Cart - ${item.price + customization.extras.length * 1.99}
+          </button>
+        </div>
       </div>
     </div>
   )

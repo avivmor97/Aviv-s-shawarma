@@ -17,6 +17,7 @@
     text-align: center;
     max-width: 500px;
     width: 90%;
+    position: relative;
 }
 
 .modal-img {
@@ -60,6 +61,21 @@
     cursor: pointer;
 }
 
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.cancel-btn {
+    background: #dc3545;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .confirm-btn {
     background: #28a745;
     color: white;
@@ -67,5 +83,4 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 15px;
 }
