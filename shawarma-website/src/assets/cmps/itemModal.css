@@ -47,8 +47,14 @@
     transition: 0.3s;
 }
 
-.option-list button.selected {
-    background: #e65c00;
+/* Green Background for Selected Extras */
+.option-list .selected-extra {
+    background: #28a745;
+}
+
+/* Green Background for Selected Drink Size */
+.size-btn.selected-extra {
+    background: #28a745;
 }
 
 .close-btn {
@@ -57,7 +63,7 @@
     font-size: 1.5rem;
     position: absolute;
     top: 10px;
-    right: 15px;
+    right: 500px;
     cursor: pointer;
 }
 
