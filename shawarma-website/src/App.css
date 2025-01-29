@@ -49,3 +49,96 @@ html::before, body::before {
   flex-shrink: 0;
   text-align: center; /* Center align text */
 }
+
+
+
+
+/* /////////////////////////////////////////////////////////////////// */
+
+
+@media (max-width: 667px) {
+  /* Ensure Background Image Scales Properly */
+  html, body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Adjust Light Overlay for Better Visibility */
+  html::before, body::before {
+    background: rgba(10, 10, 10, 0.6); /* Slightly darker overlay */
+  }
+
+  /* Root & App Layout Adjustments */
+  #root, .app {
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Footer Adjustments */
+  .footer {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+
+  /* Homepage Adjustments */
+  .homepage {
+    grid-template-rows: auto auto auto;
+    padding: 10px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem; /* Smaller title */
+  }
+
+  .info-section h2 {
+    font-size: 3rem;
+  }
+
+  .bolder {
+    font-size: 4.5rem;
+  }
+
+  .info-section .des {
+    font-size: 1.3rem;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  /* Order Section Adjustments */
+  .order-now-btn {
+    font-size: 1.3rem;
+    padding: 15px 30px;
+  }
+
+  /* Reservation Form */
+  .reservation-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .form-group {
+    max-width: 90%;
+  }
+
+  /* Adjust Modal for Mobile */
+  .modal-content {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .modal-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .option-list {
+    gap: 5px;
+  }
+
+  .option-list button {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
