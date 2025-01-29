@@ -24,10 +24,11 @@
 }
 
 .map-container {
-    width: 100%;
+    width: 600px;
     height: 400px;
     border-radius: 10px;
     overflow: hidden;
+    margin: auto;
 }
 
 /* Reviews */
@@ -53,10 +54,11 @@
 .review-card {
     width: 250px;
     padding: 15px;
-    background: rgba(159, 159, 159, 0.9);
+    background: rgba(34, 34, 34, 0.308);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     text-align: center;
+    
 }
 
 .review-card h3 {
@@ -66,7 +68,7 @@
 
 .review-card p {
     font-size: 1rem;
-    color: #333;
+    color: #ffffff;
 }
 
 .stars {
@@ -75,7 +77,7 @@
 
 /* Contact Info */
 .contact-info {
-    background: rgba(159, 159, 159, 0.9);
+    background: rgba(34, 34, 34, 0.308);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -88,5 +90,5 @@
 
 .contact-info p {
     font-size: 1.2rem;
-    color: #333;
+    color: #ffffff;
 }
