@@ -55,13 +55,14 @@ export const Reservation = () => {
           <label htmlFor="date">Select Date and Time</label>
           <DatePicker
             id="date"
+            className="styled-datepicker"
             selected={selectedDate}
             onChange={(date) => setSelectedDate(date)}
             showTimeSelect
             timeFormat="HH:mm"
             timeIntervals={30}
             dateFormat="MMMM d, yyyy h:mm aa"
-            placeholderText="Choose a date and time"
+            placeholderText="🎉 Pick a Date & Time 🎊"
           />
         </div>
         <button type="submit" className="reservation-btn">
