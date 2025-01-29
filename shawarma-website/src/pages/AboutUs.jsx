@@ -68,11 +68,11 @@ export const AboutUs = () => {
       <div className="graphs">
         <div className="graph">
           <h2>Shawarma Love in Israel</h2>
-          <Pie data={shawarmaLoveData} />
+          <Bar data={shawarmaLoveData} />
         </div>
         <div className="graph">
           <h2>Happiness After Eating Shawarma</h2>
-          <Pie data={happinessData} />
+          <Bar data={happinessData} />
         </div>
         <div className="graph">
           <h2>Most Beloved Shawarma Extras</h2>
