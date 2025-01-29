@@ -1,10 +1,29 @@
 import React from 'react'
 import { Chart as ChartJS, CategoryScale, LinearScale, Tooltip, Legend, BarElement } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
-
 import avivImage from '../assets/images/aviv.jpeg'
 
 ChartJS.register(CategoryScale, LinearScale, Tooltip, Legend, BarElement)
+
+const graphOptions = {
+  plugins: {
+    legend: {
+      labels: {
+        color: "#ffffff", // White text for legend
+      },
+    },
+  },
+  scales: {
+    x: {
+      ticks: { color: "#ffffff" }, // White text for X-axis labels
+      grid: { color: "rgba(255, 255, 255, 0.2)" }, // Light grid lines
+    },
+    y: {
+      ticks: { color: "#ffffff" }, // White text for Y-axis labels
+      grid: { color: "rgba(255, 255, 255, 0.2)" },
+    },
+  },
+}
 
 export const AboutUs = () => {
   const shawarmaLoveData = {
@@ -54,15 +73,15 @@ export const AboutUs = () => {
       <div className="graphs">
         <div className="graph">
           <h2>Shawarma Love in Israel</h2>
-          <Bar data={shawarmaLoveData} />
+          <Bar data={shawarmaLoveData} options={graphOptions} />
         </div>
         <div className="graph">
           <h2>Happiness After Eating Shawarma</h2>
-          <Bar data={happinessData} />
+          <Bar data={happinessData} options={graphOptions} />
         </div>
         <div className="graph">
           <h2>Most Beloved Shawarma Extras</h2>
-          <Bar data={extrasData} />
+          <Bar data={extrasData} options={graphOptions} />
         </div>
       </div>
     </section>

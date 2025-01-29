@@ -79,7 +79,7 @@ export const ContactUs = () => {
 
       {/* Bottom Row - Contact Details */}
       <div className="contact-info">
-        <h2>Contact Us</h2>
+        <h2 className="contact-header">Contact Us</h2>
         <p>Email: contact@shawarma.com</p>
         <p>Phone: +1 (555) 123-4567</p>
         <p>Address: 123 Shawarma St, Food City</p>
