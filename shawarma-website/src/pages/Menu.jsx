@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import pitaImg from '../assets/images/pita.png'
 import laffaImg from '../assets/images/laffa.png'
 import plateImg from '../assets/images/plate.png'
@@ -7,9 +7,11 @@ import hummusImg from '../assets/images/hummus.png'
 import saladImg from '../assets/images/salad.png'
 import drinkImg from '../assets/images/drink.png'
 import { useCart } from '../cmps/Cart.jsx'
+import { ItemModal } from '../cmps/ItemModal.jsx'
 
 export const Menu = () => {
   const { addToCart } = useCart()
+  const [selectedItem, setSelectedItem] = useState(null)
 
   const categories = [
     {
@@ -32,7 +34,7 @@ export const Menu = () => {
       name: 'Drinks',
       items: [
         { name: 'Coke', price: 2.99, image: drinkImg },
-        { name: 'Coke zero', price: 2.99, image: drinkImg },
+        { name: 'Coke Zero', price: 2.99, image: drinkImg },
         { name: 'Pepsi', price: 2.99, image: drinkImg },
       ],
     },
@@ -48,12 +50,14 @@ export const Menu = () => {
               <h2>{category.name}</h2>
               <ul>
                 {category.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="menu-item">
+                  <li key={itemIndex} className="menu-item" onClick={() => setSelectedItem(item)}>
                     <img src={item.image} alt={item.name} />
                     <div className="menu-info">
                       <h3>{item.name}</h3>
                       <p>${item.price.toFixed(2)}</p>
-                      <button onClick={() => addToCart(item)}>Add to Cart</button>
+                      <button onClick={(e) => { e.stopPropagation(); addToCart(item) }}>
+                        Add to Cart
+                      </button>
                     </div>
                   </li>
                 ))}
@@ -62,6 +66,8 @@ export const Menu = () => {
           ))}
         </div>
       </section>
+
+      {selectedItem && <ItemModal item={selectedItem} closeModal={() => setSelectedItem(null)} addToCart={addToCart} />}
     </div>
   )
 }
