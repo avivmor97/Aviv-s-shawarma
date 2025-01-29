@@ -148,3 +148,53 @@
     background: #e65c00;
   }
   
+
+  @media (max-width: 768px) {
+    /* Move Cart Icon to Top Right */
+    .cart-container {
+        top: 20px;
+        right: 20px;
+        bottom: auto;
+        position: fixed;
+    }
+
+    .cart-icon {
+        width: 50px; /* Slightly smaller for mobile */
+        height: 50px;
+    }
+
+    /* Cart Modal Adjustments */
+    .cart-modal {
+        top: 80px; /* Below the cart icon */
+        right: 10px;
+        left: auto;
+        width: 280px; /* Slightly smaller for mobile */
+        max-height: 350px; /* Reduce height */
+        padding: 15px;
+    }
+
+    /* Adjust Close Button */
+    .close-btn {
+        top: 5px;
+        right: 5px;
+        left: auto;
+        font-size: 1rem;
+    }
+
+    /* Reduce Cart Item Size */
+    .cart-item {
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    .cart-item-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Adjust Checkout Button */
+    .checkout-btn {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}
