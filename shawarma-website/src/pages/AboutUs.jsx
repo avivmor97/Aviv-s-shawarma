@@ -1,11 +1,10 @@
 import React from 'react'
-import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, Tooltip, Legend, BarElement } from 'chart.js'
-import { Pie, Bar } from 'react-chartjs-2'
-import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api'
+import { Chart as ChartJS, CategoryScale, LinearScale, Tooltip, Legend, BarElement } from 'chart.js'
+import { Bar } from 'react-chartjs-2'
 
-import avivImage from '../assets/images/aviv.jpeg';
+import avivImage from '../assets/images/aviv.jpeg'
 
-ChartJS.register(ArcElement, CategoryScale, LinearScale, Tooltip, Legend, BarElement)
+ChartJS.register(CategoryScale, LinearScale, Tooltip, Legend, BarElement)
 
 export const AboutUs = () => {
   const shawarmaLoveData = {
@@ -38,19 +37,6 @@ export const AboutUs = () => {
     ],
   }
 
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyCFcdIdanTS9NKH9Befe-WKm5YBfSCIRWU',
-  })
-
-  const locations = [
-    { lat: 31.7683, lng: 35.2137 },
-    { lat: 32.0853, lng: 34.7818 },
-    { lat: 32.7940, lng: 34.9896 },
-    { lat: 31.252973, lng: 34.791462 },
-  ]
-
-  if (!isLoaded) return <p>Loading map...</p>
-
   return (
     <section className="about-us">
       <div className="story">
@@ -79,21 +65,6 @@ export const AboutUs = () => {
           <Bar data={extrasData} />
         </div>
       </div>
-
-      {/* <div className="map">
-        <h2>Our Locations Across Israel</h2>
-        <GoogleMap
-          className="google-map"
-          mapContainerStyle={{ width: '100%', height: '100%' }}
-          center={{ lat: 31.7683, lng: 35.2137 }}
-          zoom={7}
-        >
-          {locations.map((location, index) => (
-            <Marker key={index} position={location} />
-          ))}
-        </GoogleMap>
-      </div> */}
-
     </section>
   )
 }
