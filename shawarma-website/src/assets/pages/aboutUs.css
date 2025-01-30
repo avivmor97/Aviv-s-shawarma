@@ -2,20 +2,20 @@
     display: flex;
     flex-direction: column;
     width: 80%;
-    max-height: calc(100vh - 120px); /* Proper height calculation for full scroll */
-    margin: 80px auto; /* Ensure it is centered */
+    max-height: calc(100vh - 120px); 
+    margin: 80px auto; 
     gap: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   
-    overflow-y: auto; /* Enable vertical scrolling */
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    scrollbar-width: none; 
     padding: 100px;
 }
 
 .about-us::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+    display: none; 
 }
 
 .story {
@@ -89,8 +89,8 @@
 .google-map {
     width: 600px;
     height: 600px;
-    border-radius: 10px; /* Optional: Add rounded corners */
-    overflow: hidden; /* Ensure no overflow from the map */
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .map h2 {
@@ -109,11 +109,11 @@
         gap: 20px;
         border-radius: 10px;
         text-align: center;
-        scrollbar-width: none; /* Hide scrollbar in Firefox */
+        scrollbar-width: none; 
     }
 
     .about-us::-webkit-scrollbar {
-        display: none; /* Hide scrollbar in Chrome, Safari, and Edge */
+        display: none; 
     }
 
     .story {
