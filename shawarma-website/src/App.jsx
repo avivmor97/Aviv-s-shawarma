@@ -1,12 +1,15 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
+import { fetchUserProfile } from './store/authSlice'
 
 import { CartProvider } from './cmps/Cart.jsx'
 import { NavBar } from './cmps/NavBar.jsx'
 import { Homepage } from './pages/Homepage.jsx'
 import { Menu } from './pages/Menu.jsx'
+import { Profile } from './pages/Profile.jsx'
 import { Reservation } from './pages/Reservation.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
 import { ContactUs } from './pages/ContactUs.jsx'
@@ -21,29 +24,43 @@ import './assets/main.css'
 export const App = () => {
   return (
     <Provider store={store}>
-      <CartProvider>
-        <Router>
-          <div className="app">
-            <NavBar />
-            <Cart />
-            <Routes>
-              {/* Public Routes */}
-              <Route path="/" element={<Homepage />} />
-              <Route path="/menu" element={<Menu />} />
-              <Route path="/about-us" element={<AboutUs />} />
-              <Route path="/contact-us" element={<ContactUs />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-
-              {/* Protected Routes */}
-              <Route element={<ProtectedRoute />}>
-                <Route path="/reservation" element={<Reservation />} />
-              </Route>
-            </Routes>
-            <Footer />
-          </div>
-        </Router>
-      </CartProvider>
+      <AppContent />
     </Provider>
+  )
+}
+
+// 🔹 Main App Content (Separation for Redux Store)
+const AppContent = () => {
+  const dispatch = useDispatch()
+  const { token } = useSelector((state) => state.auth)
+
+  useEffect(() => {
+    if (token) dispatch(fetchUserProfile())
+  }, [dispatch, token])
+
+  return (
+    <CartProvider>
+      <Router>
+        <div className="app">
+          <NavBar />
+          <Cart />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/login" element={token ? <Navigate to="/profile" /> : <Login />} />
+            <Route path="/register" element={token ? <Navigate to="/profile" /> : <Register />} />
+            
+            {/* Protected Routes */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/reservation" element={<Reservation />} />
+            </Route>
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </CartProvider>
   )
 }

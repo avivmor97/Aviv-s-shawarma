@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from '../services/api.js'
 
 // Load token from localStorage
-const token = localStorage.getItem('token') ? localStorage.getItem('token') : null
+const token = localStorage.getItem('token') || null
 
 const initialState = {
   user: token ? JSON.parse(localStorage.getItem('user')) : null,
@@ -19,7 +19,7 @@ export const loginUser = createAsyncThunk('auth/login', async (credentials, thun
     localStorage.setItem('user', JSON.stringify(response.data.user))
     return response.data
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.response.data.message)
+    return thunkAPI.rejectWithValue(error.response?.data?.message || 'Login failed')
   }
 })
 
@@ -29,7 +29,20 @@ export const registerUser = createAsyncThunk('auth/register', async (userData, t
     const response = await axios.post('/auth/register', userData)
     return response.data
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.response.data.message)
+    return thunkAPI.rejectWithValue(error.response?.data?.message || 'Registration failed')
+  }
+})
+
+// Fetch User Profile
+export const fetchUserProfile = createAsyncThunk('auth/fetchUserProfile', async (_, thunkAPI) => {
+  try {
+    const token = localStorage.getItem('token')
+    const response = await axios.get('/auth/profile', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    return response.data
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response?.data?.message || 'Error fetching profile')
   }
 })
 
@@ -73,6 +86,15 @@ const authSlice = createSlice({
         state.loading = false
       })
       .addCase(registerUser.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+      .addCase(fetchUserProfile.pending, (state) => { state.loading = true })
+      .addCase(fetchUserProfile.fulfilled, (state, action) => {
+        state.loading = false
+        state.user = action.payload
+      })
+      .addCase(fetchUserProfile.rejected, (state, action) => {
         state.loading = false
         state.error = action.payload
       })

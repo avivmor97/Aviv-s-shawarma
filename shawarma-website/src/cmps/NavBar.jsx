@@ -14,7 +14,7 @@ export const NavBar = () => {
         <div className="navbar-container">
           {/* Mobile Menu Button */}
           <button className="menu-btn" onClick={() => setIsMenuOpen(true)}>☰</button>
-          
+
           {/* Desktop Navigation */}
           <div className="nav-links">
             <Link to="/" className="nav-link">Home</Link>
@@ -27,7 +27,9 @@ export const NavBar = () => {
             <div className="nav-actions">
               {user ? (
                 <>
-                  <span className="user-welcome">Welcome, {user.name}</span>
+                  <span className="user-welcome">
+                    Welcome, <Link to="/profile" className="profile-link">{user.name}</Link>
+                  </span>
                   <button className="nav-btn" onClick={() => dispatch(logoutUser())}>Logout</button>
                 </>
               ) : (
