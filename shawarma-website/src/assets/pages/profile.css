@@ -36,6 +36,7 @@
     .profile-container {
         max-width: 95%; /* Take more space on smaller screens */
         padding: 30px;
+        margin: 130px auto; /* More vertical spacing */
     }
 
     .profile-container h1 {
