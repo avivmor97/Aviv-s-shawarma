@@ -156,6 +156,11 @@
   align-self: flex-end;
 }
 
+.profile-link{
+
+  color: #e65c00;
+}
+
 /* Responsive - Show Modal Button */
 @media (max-width: 768px) {
   .menu-btn {
